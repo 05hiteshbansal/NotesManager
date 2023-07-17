@@ -12,7 +12,7 @@ function App() {
     <>
     <Routes>
     <Route path='/' element={<Protected Component={Home}/>}/>
-    <Route path='/login' element={<Auth/>}/>
+    <Route path='/login' element={<Protected Component={Auth}/>}/>
     <Route path='/notes' element={<Notes/>}/>
     <Route path='/aboutUs' element={<AboutUs/>}/>
 
