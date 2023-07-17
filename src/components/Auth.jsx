@@ -1,36 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth , googleLogin } from "../config/firebaseConfig";
-import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Routes,
-  Link,
-} from "react-router-dom";
-
-
 import {createUserWithEmailAndPassword , signInWithPopup, signOut , deleteUser} from "firebase/auth";
 function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
-  const user = auth.currentUser
-  if(user){
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
-  
-    // The user's ID, unique to the Firebase project. Do NOT use
-    // this value to authenticate with your backend server, if
-    // you have one. Use User.getToken() instead.
-    const uid = user.uid;
-    console.log(displayName , email , photoURL , emailVerified , uid )
-  }
-  else{
-    console.log("None")
-  }
+  const [user1, setuser1]= useState({})
+
+
+
+  useEffect(()=>{
+    const user = auth.currentUser
+    if(user){
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const emailVerified = user.emailVerified;
+    
+      // The user's ID, unique to the Firebase project. Do NOT use
+      // this value to authenticate with your backend server, if
+      // you have one. Use User.getToken() instead.
+      const uid = user.uid;
+      console.log(displayName , email , photoURL , emailVerified , uid )
+    }
+    else{
+      console.log("None")
+    }
+  }, [user1])
 
   const signIn = async () => {
           createUserWithEmailAndPassword(auth, email, password)
@@ -51,6 +46,7 @@ function Auth() {
     try {
         const user = await signInWithPopup(auth, googleLogin); 
         console.log(user)
+setuser1(user)
     } catch (error) {
       console.log(error);
     }
