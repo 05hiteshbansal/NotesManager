@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import { auth , googleLogin } from "../config/firebaseConfig";
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Routes,
+  Link,
+} from "react-router-dom";
+
 
 import {createUserWithEmailAndPassword , signInWithPopup, signOut , deleteUser} from "firebase/auth";
 function Auth() {
@@ -60,13 +69,25 @@ const delUser= async()=>{
   const user = auth.currentUser;
 
   deleteUser(user).then(() => {
-    // User deleted.
+    console.log('User is deleted successfully')
   }).catch((error) => {
-    // An error ocurred
-    // ...
+    console.log(error.message)
   });
 }
+const isUser = async()=>{
+  const user = auth.currentUser;
+  if(user){
+    <Routes>
+    <Route path="/notes" /> 
+  </Routes>
+  }
+  else{
+    <Routes>
+    <Route path="/login" /> {/* 👈 Renders at /app/ */}
+  </Routes>
+  }
 
+}
   return (
     <div>
       <input
