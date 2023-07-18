@@ -11,9 +11,9 @@ function App() {
   return (
     <>
     <Routes>
-    <Route path='/' element={<Protected Component={Home}/>}/>
-    <Route path='/login' element={<Protected Component={Auth}/>}/>
-    <Route path='/notes' element={<Notes/>}/>
+    <Route path='/' element={<Home/>}/>
+    <Route path='/login' element={<Auth/>}/>
+    <Route path='/notes' element={<Protected Component={Notes}/>}/>
     <Route path='/aboutUs' element={<AboutUs/>}/>
 
     </Routes>
