@@ -1,6 +1,6 @@
 
 import './App.css'
-import Auth  from './components/Auth'
+//import Auth  from './components/Auth'
 import {Route,Routes} from "react-router-dom";
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
@@ -12,8 +12,9 @@ function App() {
     <>
     <Routes>
     <Route path='/' element={<Home/>}/>
-    <Route path='/login' element={<Auth/>}/>
-    <Route path='/notes' element={<Protected Component={Notes}/>}/>
+    {/* <Route path='/login' element={<Auth/>}/> */}
+    {/* <Route path='/notes' element={<Protected Component={Notes}/>}/> */}
+    <Route path='/notes' element={<Notes/>}/>
     <Route path='/aboutUs' element={<AboutUs/>}/>
 
     </Routes>

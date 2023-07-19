@@ -1,8 +1,12 @@
 import React from 'react'
+import NewNote from './notesComponent/NewNote'
+import Note from './notesComponent/Notes'
 
 const Notes = () => {
-  return (
-    <div>Notes</div>
+  return (<>
+    <Note/>
+    <NewNote/>
+    </>
   )
 }
 
