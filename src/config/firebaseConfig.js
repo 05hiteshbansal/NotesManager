@@ -14,6 +14,7 @@ const firebaseConfig = {
   messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
   appId:import.meta.env.VITE_APPID,
   measurementId:import.meta.env.VITE_MEASUREMENTID
+
 };
 
 const app = initializeApp(firebaseConfig);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 const NewNote = () => {
   const [newnote, setNewnote] = useState('');
   const limit = 200;
@@ -10,9 +10,25 @@ const fun =(e)=>{
         setNewnote(e.target.value)}
 }
 
+const postdata = ()=>{
+  const items = JSON.parse(localStorage.getItem("user"));
+  axios
+  .post(
+    "http://localhost:4000/notes",
+    { 
+      uid: items.uid,
+      data:[{note:newnote}]
+    }
+  )
+  .then((res) => {
+    console.log(res);
+  })
+
+}
+
 const save =()=>{
     if (newnote.trim().length > 0) {
-       // handleAddNote(noteText);
+       postdata()
        setNewnote('');
     }
 }
