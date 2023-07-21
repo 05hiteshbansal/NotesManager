@@ -6,17 +6,10 @@ import {
   signOut,
   deleteUser,
 } from "firebase/auth";
-//import { useNavigate } from "react-router-dom";
-
-//import { useSelector, useDispatch } from 'react-redux'
-//import { userInfo } from '../redux/counter/counterSlice'
-
-// export function Counter() {
-//   const count = useSelector((state) => state.counter.value)
-//   const dispatch = useDispatch()
-// }
+import { useNavigate } from "react-router-dom";
 
 function Auth() {
+  const Navigate = useNavigate() 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user1, setuser1] = useState({});
@@ -35,7 +28,7 @@ function Auth() {
       //    dispatch(userInfo(user))
       localStorage.setItem("user", JSON.stringify(userinfo));
       // const Navigate = useNavigate();
-      // Navigate('/notes');
+       Navigate('/');
     }
      else 
      {

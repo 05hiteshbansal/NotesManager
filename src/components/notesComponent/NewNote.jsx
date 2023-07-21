@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-const NewNote = () => {
+const NewNote = ({condition , conditionValue}) => {
   const [newnote, setNewnote] = useState('');
   const limit = 200;
 
@@ -22,6 +22,12 @@ const postdata = ()=>{
   )
   .then((res) => {
     console.log(res);
+    if(conditionValue){
+      condition(false)
+    }
+    else{
+      condition(true)
+    }
   })
 
 }
@@ -30,6 +36,7 @@ const save =()=>{
     if (newnote.trim().length > 0) {
        postdata()
        setNewnote('');
+       
     }
 }
 
