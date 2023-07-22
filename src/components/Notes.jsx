@@ -24,7 +24,7 @@ const [changed,setChanged]=useState(true)
     <>
       {data.map((d, index) => (
         <div key={index}>
-          <Note title={d.note} date={d.date} />
+          <Note title={d.note} date={d.date} id={d._id} condition={setChanged} conditionValue={changed} />
         </div>
       ))
       }

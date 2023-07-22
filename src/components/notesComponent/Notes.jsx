@@ -1,11 +1,36 @@
 import React from 'react'
 import { MdDeleteForever } from 'react-icons/md';
-const Note = (props) => {
+import axios from 'axios';
+
+
+
+const Note = ({condition , conditionValue ,title , id , date}) => {
+  const deleteFun = ()=>{
+    const items = JSON.parse(localStorage.getItem("user"));
+    axios
+    .post(
+      "http://localhost:4000/onenote",
+      { 
+        uid: items.uid,
+        dataid: id 
+      }
+    )
+    .then((res) => {
+      console.log(res);
+      if(conditionValue){
+        condition(false)
+      }
+      else{
+        condition(true)
+      }
+    })
+  
+  }
   return (<>
-  <span>{props.title}</span>
+  <span>{title}</span>
   <div>
-    <small>{props.date}</small>
-    <MdDeleteForever/>
+    <small>{date}</small>
+    <MdDeleteForever onClick={deleteFun}/>
   </div>
   </>
   )
