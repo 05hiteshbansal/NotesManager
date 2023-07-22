@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { Paper } from '@mui/material';
 const NewNote = ({condition , conditionValue}) => {
   const [newnote, setNewnote] = useState('');
   const limit = 200;
@@ -41,20 +48,27 @@ const save =()=>{
 }
 
   return (
-    <><div>
-      <textarea
+    <>
+    
+    <Card sx={{ maxWidth: 345 }}>
+      <CardContent>
+        <div>
+        <Typography gutterBottom variant="h5" component="div">
+        <textarea
 				rows='8'
 				cols='10'
 				placeholder='Type to add a note...'
 				value={newnote}
 				onChange={fun}
 			/>
-            <small>{limit-newnote.trim().length} remaining ...</small>
-
-            <button onClick={save}>
-					Save
-				</button>
-            </div>
+        </Typography>
+        <Typography variant="body2" color="text.secondary">{limit-newnote.trim().length} remaining ...</Typography>
+        </div>
+      </CardContent>
+      <CardActions>
+        <Button size="small" onClick={save}>Save</Button>
+      </CardActions>
+    </Card>    
     </>
   );
 };

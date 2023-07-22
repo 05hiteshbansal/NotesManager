@@ -1,0 +1,11 @@
+.notes {
+    flex: content;
+    background-color: DodgerBlue;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+    content: normal;
+    align-content: center;
+    display: inline-grid;
+    flex-direction: row;
+  }
