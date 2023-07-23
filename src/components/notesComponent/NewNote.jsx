@@ -49,11 +49,7 @@ const save =()=>{
 
   return (
     <>
-    
-    <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <div>
-        <Typography gutterBottom variant="h5" component="div">
+        <div className='note new'>
         <textarea
 				rows='8'
 				cols='10'
@@ -61,14 +57,9 @@ const save =()=>{
 				value={newnote}
 				onChange={fun}
 			/>
-        </Typography>
-        <Typography variant="body2" color="text.secondary">{limit-newnote.trim().length} remaining ...</Typography>
+        <div className="note-footer">{limit-newnote.trim().length} remaining ...
+        <Button className="save" onClick={save}>Save</Button>    </div>
         </div>
-      </CardContent>
-      <CardActions>
-        <Button size="small" onClick={save}>Save</Button>
-      </CardActions>
-    </Card>    
     </>
   );
 };
