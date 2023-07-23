@@ -2,6 +2,7 @@ import React, { useState , useEffect , useRef} from "react";
 import NewNote from "./notesComponent/NewNote";
 import Note from "./notesComponent/Notes";
 import axios from "axios";
+import ResponsiveAppBar from "./homeComponents/Navbar";
 const Notes = () => {
   // const isMounted = useRef(false);
   const [data, setData] = useState([]);
@@ -23,7 +24,8 @@ const [changed,setChanged]=useState(false)
   return (
     <>
     <div>
-    <div className ="notes-list">
+    <ResponsiveAppBar/>
+    <div className ="notes-list main">
       {data.map((d, index) => (
         <div  key={index}>
           <Note title={d.note} date={d.date} id={d._id} condition={setChanged} conditionValue={changed}  />

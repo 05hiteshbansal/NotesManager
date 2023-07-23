@@ -7,6 +7,13 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.main{
+	max-width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	padding: 5px;
+}
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas,
 		'Courier New', monospace;
@@ -27,11 +34,7 @@ code {
 }
 
 .container {
-	max-width: 960px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-right: 15px;
-	padding-left: 15px;
+background-image: url("/src/media/b1.jpg");
 	min-height: 100vh;
 }
 
@@ -63,6 +66,7 @@ textarea:focus {
     border: 2px solid black;
 	border-radius: 15px;
 	padding: 5px 10px 5px 10px;
+
     
 }
 
@@ -72,6 +76,7 @@ textarea:focus {
 }
 
 .note {
+	word-wrap: break-word;
 	background-color: #fef68a;
 	border-radius: 10px;
 	padding: 1rem;
