@@ -10,7 +10,7 @@ import {
   deleteUser,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import loginimage from "../media/login2.jpg"
+import loginimage from "../media/login1.jpg"
 import logo from "../media/logo.png"
 function Auth() {
   const Navigate = useNavigate() 
@@ -96,7 +96,7 @@ function Auth() {
       {/* <input placeholder="Password...." onChange={(e) => {setPassword(e.target.value);}}/> */}
       {/* <button onClick={signIn}>Sign In</button> */}
       <img src={logo} style={{height:"100px" , margin:"20px"}} alt="Italian Trulli"/>
-      <span>Notes Keepa</span>
+      <span className="text-login">Notes Keepa</span>
       <Button variant="contained" className="btnlogin" style={{backgroundColor:"#fb1616b0" , margin:"5px"}} onClick={signInWithGoogle} ><ImGoogle style={{marginRight:"5px"}}/>Google Login</Button>
       {/* <button  className="btnlogin" style={{backgroundColor:"#fb1616b0"}} onClick={signInWithGoogle}><ImGoogle style={{marginRight:"5px"}}/>Sign In with Google</button> */}
       <Button variant="contained"  className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={signout}>Log Out</Button>

@@ -124,7 +124,7 @@ textarea:focus {
 .login{
 	display: flex;
 	flex-direction: row;
-	background-color: #ffe260;
+	background-color: #fed700;
 }
 .googlelogin{
 	
@@ -143,3 +143,9 @@ textarea:focus {
 	
 }
 
+.text-login{
+	font-size: 35px;
+    color: darkgoldenrod;
+    font-weight: 600;
+    font-family: cursive
+}

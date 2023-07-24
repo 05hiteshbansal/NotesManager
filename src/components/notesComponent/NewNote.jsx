@@ -56,6 +56,7 @@ const save =()=>{
 				placeholder='Type to add a note...'
 				value={newnote}
 				onChange={fun}
+        style={{fontSize:"14px"}}
 			/>
         <div className="note-footer">{limit-newnote.trim().length} remaining ...
         <Button className="save" onClick={save}>Save</Button>    </div>

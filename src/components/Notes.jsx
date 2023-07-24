@@ -9,7 +9,7 @@ const Notes = () => {
   // const isMounted = useRef(false);
   const [data, setData] = useState([]);
 const [changed,setChanged]=useState(false)
-
+const [search, setSearch] = useState([]);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("user"));
    // console.log(items.uid);
@@ -28,6 +28,7 @@ const [changed,setChanged]=useState(false)
     <div>
     <ResponsiveAppBar profile ={user. photoURL}/>
     <div className ="notes-list main">
+      
       {data.map((d, index) => (
         <div  key={index}>
           <Note title={d.note} date={d.date} id={d._id} condition={setChanged} conditionValue={changed}  />
