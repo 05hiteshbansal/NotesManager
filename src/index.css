@@ -115,3 +115,31 @@ textarea:focus {
 .search input:focus {
 	outline: none;
 }
+
+.imagelogin{
+	height: 100vh;
+	width: 70vw;
+}
+
+.login{
+	display: flex;
+	flex-direction: row;
+	background-color: #ffe260;
+}
+.googlelogin{
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 30vw;
+}
+
+.btnlogin{
+    border: none;
+    padding: 10px;
+    width: 20vw;
+	cursor: pointer;
+	
+}
+

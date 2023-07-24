@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { auth, googleLogin } from "../config/firebaseConfig";
+import { ImGoogle } from "react-icons/im";
+import Button from '@mui/material/Button';
+
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -7,11 +10,12 @@ import {
   deleteUser,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import loginimage from "../media/login2.jpg"
+import logo from "../media/logo.png"
 function Auth() {
   const Navigate = useNavigate() 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [user1, setuser1] = useState({});
   useEffect(() =>{
     const user = auth.currentUser;
@@ -28,7 +32,7 @@ function Auth() {
       //    dispatch(userInfo(user))
       localStorage.setItem("user", JSON.stringify(userinfo));
       // const Navigate = useNavigate();
-       Navigate('/');
+       Navigate('/notes');
     }
      else 
      {
@@ -36,19 +40,19 @@ function Auth() {
      }
   }, [user1]);
 
-  const signIn = async () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user, userCredential.uid);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
-  };
+  // const signIn = async () => {
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       console.log(user, userCredential.uid);
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.log(errorCode, errorMessage);
+  //     });
+  // };
 
   const signInWithGoogle = async () => {
     try {
@@ -82,25 +86,25 @@ function Auth() {
         console.log(error.message);
       });
   };
-  return (
-    <div>
-      <input
-        placeholder="Email...."
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <input
-        placeholder="Password...."
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button onClick={signIn}>Sign In</button>
-      <button onClick={signInWithGoogle}>Sign In with Google</button>
-      <button onClick={signout}>Log Out</button>
-      <button onClick={delUser}>Delete user</button>
+  return (<>
+  <div>
+    <div className="login">
+    <img src={loginimage} className="imagelogin" alt="Italian Trulli"/>
+   
+    <div className="googlelogin">
+      {/* <input placeholder="Email...." onChange={(e) => { setEmail(e.target.value); }} /> */}
+      {/* <input placeholder="Password...." onChange={(e) => {setPassword(e.target.value);}}/> */}
+      {/* <button onClick={signIn}>Sign In</button> */}
+      <img src={logo} style={{height:"100px" , margin:"20px"}} alt="Italian Trulli"/>
+      <span>Notes Keepa</span>
+      <Button variant="contained" className="btnlogin" style={{backgroundColor:"#fb1616b0" , margin:"5px"}} onClick={signInWithGoogle} ><ImGoogle style={{marginRight:"5px"}}/>Google Login</Button>
+      {/* <button  className="btnlogin" style={{backgroundColor:"#fb1616b0"}} onClick={signInWithGoogle}><ImGoogle style={{marginRight:"5px"}}/>Sign In with Google</button> */}
+      <Button variant="contained"  className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={signout}>Log Out</Button>
+      <Button variant="contained" className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={delUser}>Delete user</Button>
     </div>
+    </div>
+    </div>
+    </>
   );
 }
 

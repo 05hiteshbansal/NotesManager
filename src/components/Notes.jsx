@@ -4,6 +4,8 @@ import Note from "./notesComponent/Notes";
 import axios from "axios";
 import ResponsiveAppBar from "./homeComponents/Navbar";
 const Notes = () => {
+
+  const user = JSON.parse(localStorage.getItem("user"));
   // const isMounted = useRef(false);
   const [data, setData] = useState([]);
 const [changed,setChanged]=useState(false)
@@ -24,7 +26,7 @@ const [changed,setChanged]=useState(false)
   return (
     <>
     <div>
-    <ResponsiveAppBar/>
+    <ResponsiveAppBar profile ={user. photoURL}/>
     <div className ="notes-list main">
       {data.map((d, index) => (
         <div  key={index}>
