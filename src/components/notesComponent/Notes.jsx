@@ -13,7 +13,7 @@ const Note = ({ condition, conditionValue, title, id, date }) => {
   const deleteFun = () => {
     const items = JSON.parse(localStorage.getItem("user"));
     axios
-      .post("http://localhost:4000/onenote", {
+      .post("https://note-manager.onrender.com/onenote"||"http://localhost:4000/onenote", {
         uid: items.uid,
         dataid: id,
       })

@@ -13,7 +13,7 @@ const [search, setSearch] = useState([]);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("user"));
    // console.log(items.uid);
-    axios.post("http://localhost:4000/getnotes", {uid:items.uid})
+    axios.post("https://note-manager.onrender.com/getnotes"||"http://localhost:4000/getnotes", {uid:items.uid})
     .then((res) => {
       setData(res.data.fetchData[0].notes);
       console.log(res.data.fetchData[0].notes)

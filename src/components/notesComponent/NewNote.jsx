@@ -21,7 +21,7 @@ const postdata = ()=>{
   const items = JSON.parse(localStorage.getItem("user"));
   axios
   .post(
-    "http://localhost:4000/notes",
+    "https://note-manager.onrender.com/notes"||"http://localhost:4000/notes",
     { 
       uid: items.uid,
       data:[{note:newnote}]
