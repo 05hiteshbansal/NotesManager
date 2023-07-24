@@ -13,8 +13,8 @@ function App() {
     {/* <Route path='/' element={<Home/>}/> */}
     {/* <Route path='/login' element={<Auth/>}/> */}
     <Route path='/' element={<Auth/>}/>
-    {/* <Route path='/notes' element={<Protected Component={Notes}/>}/> */}
-    <Route className="container" path='/notes' element={<Notes/>}/>
+    <Route path='/notes' element={<Protected Component={Notes}/>}/>
+    {/* <Route className="container" path='/notes' element={<Notes/>}/> */}
     {/* <Route path='/aboutUs' element={<AboutU0s/>}/> */}
 
     </Routes>

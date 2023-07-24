@@ -10,7 +10,7 @@ const Protected = (props) => {
     const items = JSON.parse(localStorage.getItem("user"));
     console.log(items);
     if (!items) {
-      Navigate('/login');
+      Navigate('/');
     }
   });
 
