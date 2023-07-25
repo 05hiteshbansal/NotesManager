@@ -13,12 +13,37 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from "../../media/logo.png"
+import { auth } from "../../config/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 //const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Delete Account', 'Logout'];
+import {signOut,deleteUser} from "firebase/auth";
+
+ 
 
 function ResponsiveAppBar(props) {
+  const Navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const delUser =() => {
+    const user = auth.currentUser;
+    deleteUser(user)
+      .then(() => {
+        console.log("User is deleted successfully");
+        Navigate('/');
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+
+const signout =async() => {
+    const user = await signOut(auth);
+    console.log(1)
+    localStorage.removeItem("user");
+    Navigate('/');
+};
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,7 +57,6 @@ function ResponsiveAppBar(props) {
   };
 
   const handleCloseUserMenu = () => {
-    console.log("clicked 1")
     setAnchorElUser(null);
   };
 
@@ -52,19 +76,19 @@ function ResponsiveAppBar(props) {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={props.profile} />
               </IconButton>
-            </Tooltip>
-            <Menu sx={{ mt: '45px' }} id="menu-appbar" anchorEl={anchorElUser}
+  </Tooltip>
+            <Menu sx={{ mt: '45px',display: "inline-block",margin: "5px" }} id="menu-appbar" anchorEl={anchorElUser}
               anchorOrigin={{ vertical: 'top', horizontal: 'right', }}
               keepMounted
               transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}>
-
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" onClick={()=>{console.log({setting})}} >{setting}</Typography>
+              onClose={handleCloseUserMenu}> 
+<MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={delUser} >Delete User</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem  onClick={handleCloseUserMenu}>
+                 <Typography textAlign="center" onClick={signout} >Logout</Typography>
+                </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

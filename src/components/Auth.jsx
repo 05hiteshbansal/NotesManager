@@ -64,28 +64,28 @@ function Auth() {
     }
   };
 
-  const signout = async () => {
-    try {
-      const user = await signOut(auth);
-      console.log(user);
-      const items = localStorage.removeItem("user");
-      console.log(items);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const signout = async () => {
+  //   try {
+  //     const user = await signOut(auth);
+  //     console.log(user);
+  //     const items = localStorage.removeItem("user");
+  //     console.log(items);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const delUser = async () => {
-    const user = auth.currentUser;
+  // const delUser = async () => {
+  //   const user = auth.currentUser;
 
-    deleteUser(user)
-      .then(() => {
-        console.log("User is deleted successfully");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
+  //   deleteUser(user)
+  //     .then(() => {
+  //       console.log("User is deleted successfully");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //     });
+  // };
   return (<>
   <div>
     <div className="login">
@@ -99,8 +99,8 @@ function Auth() {
       <span className="text-login">Notes Keepa</span>
       <Button variant="contained" className="btnlogin" style={{backgroundColor:"#fb1616b0" , margin:"5px"}} onClick={signInWithGoogle} ><ImGoogle style={{marginRight:"5px"}}/>Google Login</Button>
       {/* <button  className="btnlogin" style={{backgroundColor:"#fb1616b0"}} onClick={signInWithGoogle}><ImGoogle style={{marginRight:"5px"}}/>Sign In with Google</button> */}
-      <Button variant="contained"  className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={signout}>Log Out</Button>
-      <Button variant="contained" className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={delUser}>Delete user</Button>
+      {/* <Button variant="contained"  className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={signout}>Log Out</Button>
+      <Button variant="contained" className="btnlogin" style={{backgroundColor:"orange" , margin:"5px"}} onClick={delUser}>Delete user</Button> */}
     </div>
     </div>
     </div>
